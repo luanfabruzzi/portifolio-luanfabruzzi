@@ -1,4 +1,6 @@
-import GridScan from '../../components/GridScan/GridScan';
+import GridScan from "../../components/GridScan/GridScan";
+import ProfileCard from "../../components/Profile/ProfileCard";
+import avatar from "../../assets/luan.png";
 
 function Home() {
   return (
@@ -24,22 +26,32 @@ function Home() {
           />
         </div>
 
-        <p className="hero__intro">
-          Olá, me chamo Luan Fabruzzi!
-        </p>
+        <p className="hero__intro">Olá, me chamo Luan Fabruzzi!</p>
       </section>
 
       <section id="sobre">
+        <ProfileCard
+          name="Luan Fabruzzi"
+          title="Software Engineering Intern"
+          handle="javicodes"
+          status="Online"
+          contactText="Contact Me"
+          avatarUrl={avatar}
+          showUserInfo={false}
+          enableTilt={true}
+          enableMobileTilt={false}
+          onContactClick={() => console.log("Contact clicked")}
+          behindGlowColor="rgba(91, 242, 53, 0.58)"
+          iconUrl="/assets/demo/iconpattern.png"
+          behindGlowEnabled
+          innerGradient="linear-gradient(145deg,#14532d 0%,#1e8531 100%)"
+        />
         {/* Futuro componente <About /> */}
       </section>
 
-      <section id="projetos">
-        {/* Futuro componente <Projects /> */}
-      </section>
+      <section id="projetos">{/* Futuro componente <Projects /> */}</section>
 
-      <section id="contato">
-        {/* Futuro componente <Contact /> */}
-      </section>
+      <section id="contato">{/* Futuro componente <Contact /> */}</section>
     </main>
   );
 }
