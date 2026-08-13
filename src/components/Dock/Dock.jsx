@@ -42,7 +42,6 @@ function DockItem({ children, className = '', onClick, mouseX, spring, distance,
       className={`dock-item ${className}`}
       tabIndex={0}
       role="button"
-      aria-haspopup="true"
       aria-label={label}
       onKeyDown={handleKeyDown}
     >

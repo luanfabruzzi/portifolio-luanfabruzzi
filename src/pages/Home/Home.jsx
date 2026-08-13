@@ -1,7 +1,45 @@
 import GridScan from "../../components/GridScan/GridScan";
 import ProfileCard from "../../components/Profile/ProfileCard";
 import Dock from "../../components/Dock/Dock";
+import OrbitImages from "../../components/OrbitImages/OrbitImages";
+import Education from "../../components/Education/Education";
 import avatar from "../../assets/luan.png";
+
+const education = [
+  {
+    course: "Engenharia de Software",
+    level: "Graduação",
+    status: "Em andamento",
+  },
+  {
+    course: "Desenvolvimento de Sistemas",
+    level: "Formação técnica",
+    status: "Concluído",
+  },
+];
+
+// Adicione cada curso no formato: { title, issuer, hours }.
+// O total de horas da seção é calculado automaticamente.
+const certifications = [];
+
+const ambassadorRoles = [
+  {
+    name: "DIO Campus Expert",
+    organization: "DIO",
+    description:
+      "Atuação em comunidade, compartilhando conhecimento, fortalecendo networking e incentivando outros estudantes a evoluírem na área de tecnologia.",
+    logo: "https://www.dio.me/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdio-logo.0b3e10f7.png&w=384&q=75",
+    logoAlt: "Logo da DIO",
+  },
+  {
+    name: "Google Students",
+    organization: "Google",
+    description:
+      "Participação em iniciativas estudantis ligadas ao ecossistema Google, com foco em aprendizado contínuo, colaboração e protagonismo na comunidade tech.",
+    logo: "https://developers.google.com/community/gdsc/images/gdsc-lockup.svg",
+    logoAlt: "Logo do Google Students",
+  },
+];
 
 const socialIcons = {
   github: (
@@ -47,7 +85,8 @@ function Home() {
     {
       icon: <SocialIcon name="instagram" />,
       label: "Instagram",
-      onClick: () => window.open("https://instagram.com/fabruzzi.dev", "_blank"),
+      onClick: () =>
+        window.open("https://instagram.com/fabruzzi.dev", "_blank"),
     },
     {
       icon: <SocialIcon name="email" />,
@@ -58,9 +97,65 @@ function Home() {
     },
   ];
 
+  const stackImages = [
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+      alt: "C#",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
+      alt: ".NET",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg",
+      alt: "ASP.NET Core",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+      alt: "SQL Server",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+      alt: "PostgreSQL",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+      alt: "JavaScript",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+      alt: "Node.js",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      alt: "React",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+      alt: "CSS",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+      alt: "Docker",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+      alt: "Azure",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+      alt: "Git",
+    },
+  ];
+
   return (
-    <main>
-      <section className="hero">
+    <>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
+
+      <main id="conteudo">
+      <section id="inicio" className="hero">
         <div className="hero__grid" aria-hidden="true">
           <GridScan
             sensitivity={0.55}
@@ -82,7 +177,7 @@ function Home() {
         </div>
 
         <div className="hero__content">
-          <p className="hero__intro">Olá, me chamo Luan Fabruzzi!</p>
+          <h1 className="hero__intro">Olá, me chamo Luan Fabruzzi!</h1>
 
           <Dock
             items={items}
@@ -95,30 +190,130 @@ function Home() {
       </section>
 
       {/* Sobre mim */}
-      <section id="sobre">
-        <ProfileCard
-          name="Luan Fabruzzi"
-          title="Software Engineering Intern"
-          handle="javicodes"
-          status="Online"
-          contactText="Contact Me"
-          avatarUrl={avatar}
-          showUserInfo={false}
-          enableTilt={true}
-          enableMobileTilt={false}
-          onContactClick={() => console.log("Contact clicked")}
-          behindGlowColor="rgba(91, 242, 53, 0.58)"
-          iconUrl="/assets/demo/iconpattern.png"
-          behindGlowEnabled
-          innerGradient="linear-gradient(145deg,#14532d 0%,#1e8531 100%)"
-        />
-        {/* Futuro componente <About /> */}
+      <section id="sobre" className="about-section">
+        <div className="about-section__content">
+          <div className="about-section__profile">
+            <ProfileCard
+              name="Luan Fabruzzi"
+              title="Software Engineering Intern"
+              handle="javicodes"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl={avatar}
+              showUserInfo={false}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={() => console.log("Contact clicked")}
+              behindGlowColor="rgba(91, 242, 53, 0.58)"
+              iconUrl="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
+              behindGlowEnabled
+              innerGradient="linear-gradient(145deg,#14532d 0%,#1e8531 100%)"
+            />
+          </div>
+
+          <article className="about-section__text">
+            <span className="about-section__eyebrow">ABOUT</span>
+            <p>
+              Sou estudante de Engenharia de Software e atualmente atuo como
+              estagiário em desenvolvimento, trabalhando principalmente com
+              .NET, React e React Native. Minha trajetória na tecnologia começou
+              com a formação técnica em Desenvolvimento de Sistemas e, desde
+              então, venho buscando evoluir tanto na prática quanto nos estudos.
+              Gosto de entender como as coisas funcionam, desenvolver projetos
+              que resolvam problemas reais e aprender novas tecnologias
+              constantemente. Também faço parte de comunidades de tecnologia
+              como Embaixador Universitário da DIO e do Google, experiências que
+              ampliam meu contato com outras pessoas da área. Hoje, meu foco é
+              construir uma base sólida como engenheiro de software, ganhar
+              experiência em projetos reais e continuar evoluindo até alcançar
+              posições de maior responsabilidade técnica, como desenvolvedor
+              sênior e Tech Lead.
+            </p>
+          </article>
+        </div>
       </section>
 
-      <section id="projetos">{/* Futuro componente <Projects /> */}</section>
+      <section id="stack" className="stack-section section-shell">
+          <div className="stack-section__content">
+            <div className="section-heading section-heading--centered">
+              <span className="section-eyebrow">Minhas habilidades</span>
+              <p>Ferramentas que fazem parte da minha rotina de desenvolvimento.</p>
+            </div>
 
-      <section id="contato">{/* Futuro componente <Contact /> */}</section>
-    </main>
+            <OrbitImages
+              images={stackImages}
+              altPrefix="Tecnologias que utilizo"
+              className="stack-section__orbit"
+              shape="ellipse"
+              baseWidth={1000}
+              radiusX={390}
+              radiusY={105}
+              rotation={-8}
+              duration={30}
+              itemSize={78}
+              responsive={true}
+              responsiveHeight={320}
+              direction="normal"
+              fill
+              showPath
+              pathColor="rgba(74, 222, 128, 0.22)"
+              paused={false}
+            />
+          </div>
+      </section>
+
+      <section id="comunidade" className="community-section section-shell">
+        <div className="community-section__content">
+          <div className="section-heading">
+            <span className="section-eyebrow">Comunidade e lideranca</span>
+            <h2>Experiencias que reforcam minha atuacao alem do codigo</h2>
+            <p>
+              Atuo em comunidades que me aproximam de pessoas, eventos,
+              aprendizado continuo e troca real com o ecossistema de tecnologia.
+            </p>
+          </div>
+
+          <div className="community-grid">
+            {ambassadorRoles.map((role) => (
+              <article key={role.name} className="community-card">
+                <div className="community-card__logo-wrap">
+                  <img
+                    className="community-card__logo"
+                    src={role.logo}
+                    alt={role.logoAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <div className="community-card__body">
+                  <span className="community-card__org">{role.organization}</span>
+                  <h3>{role.name}</h3>
+                  <p>{role.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Education education={education} certifications={certifications} />
+
+      <section id="contato" className="contact-section section-shell">
+        <div className="contact-section__content">
+          <span className="section-eyebrow">Vamos conversar</span>
+          <h2>Tem um projeto ou oportunidade?</h2>
+          <p>
+            Estou disponível para trocar ideias sobre desenvolvimento e novas
+            oportunidades profissionais.
+          </p>
+          <a className="button-primary" href="mailto:luanfabruzzidev@gmail.com">
+            Entrar em contato
+          </a>
+        </div>
+      </section>
+      </main>
+    </>
   );
 }
 
