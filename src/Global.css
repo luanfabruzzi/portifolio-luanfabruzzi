@@ -372,13 +372,12 @@ section[id] {
   min-height: 5.5rem;
   padding: 1rem;
   border-radius: var(--radius-md);
-  background: rgb(255 255 255 / 96%);
 }
 
 .community-card__logo {
   width: auto;
   max-width: min(100%, 11rem);
-  max-height: 3rem;
+  max-height: 6rem;
   object-fit: contain;
 }
 

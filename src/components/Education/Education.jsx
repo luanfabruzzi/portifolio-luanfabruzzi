@@ -2,7 +2,7 @@ import "./Education.css";
 
 export default function Education({ education, certifications }) {
   const totalHours = certifications.reduce(
-    (total, certification) => total + certification.hours,
+    (total, certification) => total + parseInt(certification.hours),
     0,
   );
 

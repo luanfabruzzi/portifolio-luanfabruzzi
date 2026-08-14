@@ -7,36 +7,83 @@ import avatar from "../../assets/luan.png";
 
 const education = [
   {
-    course: "Engenharia de Software",
-    level: "Graduação",
-    status: "Em andamento",
+    course: "Engenharia de Software - UNINTER",
+    level: "Bacharelado",
+    status: "Em andamento previsão de conclusão: 2030",
   },
   {
-    course: "Desenvolvimento de Sistemas",
-    level: "Formação técnica",
+    course: "Desenvolvimento de Sistemas - Inah de Mello",
+    level: "Formação técnica - valido pela sistec/mec",
     status: "Concluído",
   },
 ];
 
 // Adicione cada curso no formato: { title, issuer, hours }.
 // O total de horas da seção é calculado automaticamente.
-const certifications = [];
+const certifications = [
+  {
+    title:"DIO — Formação Lógica de Programação",
+    issuer:"Formação para iniciantes em lógica de programação, abordando conceitos fundamentais e resolução de problemas.",
+    hours: "41"
+  },
+  {
+    title:"DIO — Formação JavaScript Developer",
+    issuer:"Formação JS Developer aprendendo conceitos web e o uso real do node.js e POP.",
+    hours: "39"
+  },
+  {
+    title:"DIO — Formação React Developer",
+    issuer:"Formação React Developer aprendendo conceitos web, reutilização de componentes, hooks e o ecossistema React.",
+    hours: "34"
+  },
+  {
+    title:"DIO — Formação .NET Developer",
+    issuer:"Formação .NET Developer aprendendo conceitos de desenvolvimento de software e a linguagem C# e todo seu ecossistema o uso de frameworks, banco de dados, azure e testes unitários e boas práticas.",
+    hours: "72"
+  },
+  {
+    title:"FIAP — Engenharia de Software",
+    issuer:"Formação em Engenharia de Software com foco em desenvolvimento web, mobile e metodologias ágeis, abordando conceitos de arquitetura, design patterns e boas práticas de programação.",
+    hours: "100"
+  },
+  {
+    title:"Alura — Trilha de .NET",
+    issuer:"Trilha de cursos de .NET criada pela empresa CADMUS com 17 cursos, abordando conceitos de desenvolvimento web, APIs, banco de dados e boas práticas de programação.",
+    hours: "147"
+  },
+  {
+    title:"Alura — Trilha de Comunicação",
+    issuer:"Trilha de cursos de comunicação criada pela empresa CADMUS com 5 módulos, abordando conceitos de comunicação interpessoal, escrita e apresentação de ideias.",
+    hours: "50"
+  },
+  {
+    title:"Alura — Trilha Talentos - Formação Hiperautomação, Processos e Projetos",
+    issuer:"Trilha de cursos criada pela empresa CADMUS com 29 cursos, abordando conceitos de desenvolvimento em análise e gestão de processos; gestão de projetos; QA; Aplicação técnica em ferramentas de automação e Power Platform. Menor conceito em hard code, sugere aplicações com Python em RPA/IA.",
+    hours: "384"
+  },
+  {
+    title:"Alura — Trilha Node",
+    issuer:"Trilha de cursos de Node.js criada pela empresa CADMUS com 29 cursos, abordando conceitos de desenvolvimento web, APIs, banco de dados e boas práticas de programação.",
+    hours: "272"
+  },
+  
+];
 
 const ambassadorRoles = [
   {
     name: "DIO Campus Expert",
-    organization: "DIO",
+    organization: "Embaixadores Universitários DIO",
     description:
-      "Atuação em comunidade, compartilhando conhecimento, fortalecendo networking e incentivando outros estudantes a evoluírem na área de tecnologia.",
-    logo: "https://www.dio.me/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdio-logo.0b3e10f7.png&w=384&q=75",
+      "Programa de embaixadores universitários focado no desenvolvimento de liderança, comunicação e protagonismo na comunidade tech. Uma experiência que fortalece minha capacidade de conectar pessoas, compartilhar conhecimento e gerar impacto.",
+    logo: "../src/assets/dio.png",
     logoAlt: "Logo da DIO",
   },
   {
     name: "Google Students",
-    organization: "Google",
+    organization: "Programa de Embaixadores Universitários Google",
     description:
-      "Participação em iniciativas estudantis ligadas ao ecossistema Google, com foco em aprendizado contínuo, colaboração e protagonismo na comunidade tech.",
-    logo: "https://developers.google.com/community/gdsc/images/gdsc-lockup.svg",
+      "Programa de embaixadores universitários do Google que conecta estudantes ao ecossistema de tecnologia, inovação e comunidade. Uma oportunidade de desenvolver liderança, ampliar conexões e representar iniciativas Google no ambiente acadêmico.",
+    logo: "../src/assets/google-students.png",
     logoAlt: "Logo do Google Students",
   },
 ];
@@ -215,13 +262,11 @@ function Home() {
             <span className="about-section__eyebrow">ABOUT</span>
             <p>
               Sou estudante de Engenharia de Software e atualmente atuo como
-              estagiário em desenvolvimento, trabalhando principalmente com
+              estagiário em engenharia de software, trabalhando principalmente com
               .NET, React e React Native. Minha trajetória na tecnologia começou
               com a formação técnica em Desenvolvimento de Sistemas e, desde
               então, venho buscando evoluir tanto na prática quanto nos estudos.
-              Gosto de entender como as coisas funcionam, desenvolver projetos
-              que resolvam problemas reais e aprender novas tecnologias
-              constantemente. Também faço parte de comunidades de tecnologia
+              Também faço parte de comunidades de tecnologia
               como Embaixador Universitário da DIO e do Google, experiências que
               ampliam meu contato com outras pessoas da área. Hoje, meu foco é
               construir uma base sólida como engenheiro de software, ganhar
@@ -266,7 +311,6 @@ function Home() {
         <div className="community-section__content">
           <div className="section-heading">
             <span className="section-eyebrow">Comunidade e lideranca</span>
-            <h2>Experiencias que reforcam minha atuacao alem do codigo</h2>
             <p>
               Atuo em comunidades que me aproximam de pessoas, eventos,
               aprendizado continuo e troca real com o ecossistema de tecnologia.
