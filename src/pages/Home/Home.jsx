@@ -8,83 +8,38 @@ import avatar from "../../assets/luan.png";
 const education = [
   {
     course: "Engenharia de Software - UNINTER",
-    level: "Bacharelado",
+    level: "Bacharelado | 4 anos - valido pelo mec",
     status: "Em andamento previsão de conclusão: 2030",
   },
   {
     course: "Desenvolvimento de Sistemas - Inah de Mello",
-    level: "Formação técnica - valido pela sistec/mec",
+    level: "Formação técnica | 2 anos - valido pela sistec/mec",
     status: "Concluído",
   },
 ];
 
-// Adicione cada curso no formato: { title, issuer, hours }.
-// O total de horas da seção é calculado automaticamente.
-const certifications = [
-  {
-    title:"DIO — Formação Lógica de Programação",
-    issuer:"Formação para iniciantes em lógica de programação, abordando conceitos fundamentais e resolução de problemas.",
-    hours: "41"
-  },
-  {
-    title:"DIO — Formação JavaScript Developer",
-    issuer:"Formação JS Developer aprendendo conceitos web e o uso real do node.js e POP.",
-    hours: "39"
-  },
-  {
-    title:"DIO — Formação React Developer",
-    issuer:"Formação React Developer aprendendo conceitos web, reutilização de componentes, hooks e o ecossistema React.",
-    hours: "34"
-  },
-  {
-    title:"DIO — Formação .NET Developer",
-    issuer:"Formação .NET Developer aprendendo conceitos de desenvolvimento de software e a linguagem C# e todo seu ecossistema o uso de frameworks, banco de dados, azure e testes unitários e boas práticas.",
-    hours: "72"
-  },
-  {
-    title:"FIAP — Engenharia de Software",
-    issuer:"Formação em Engenharia de Software com foco em desenvolvimento web, mobile e metodologias ágeis, abordando conceitos de arquitetura, design patterns e boas práticas de programação.",
-    hours: "100"
-  },
-  {
-    title:"Alura — Trilha de .NET",
-    issuer:"Trilha de cursos de .NET criada pela empresa CADMUS com 17 cursos, abordando conceitos de desenvolvimento web, APIs, banco de dados e boas práticas de programação.",
-    hours: "147"
-  },
-  {
-    title:"Alura — Trilha de Comunicação",
-    issuer:"Trilha de cursos de comunicação criada pela empresa CADMUS com 5 módulos, abordando conceitos de comunicação interpessoal, escrita e apresentação de ideias.",
-    hours: "50"
-  },
-  {
-    title:"Alura — Trilha Talentos - Formação Hiperautomação, Processos e Projetos",
-    issuer:"Trilha de cursos criada pela empresa CADMUS com 29 cursos, abordando conceitos de desenvolvimento em análise e gestão de processos; gestão de projetos; QA; Aplicação técnica em ferramentas de automação e Power Platform. Menor conceito em hard code, sugere aplicações com Python em RPA/IA.",
-    hours: "384"
-  },
-  {
-    title:"Alura — Trilha Node",
-    issuer:"Trilha de cursos de Node.js criada pela empresa CADMUS com 29 cursos, abordando conceitos de desenvolvimento web, APIs, banco de dados e boas práticas de programação.",
-    hours: "272"
-  },
-  
-];
+const complementaryHours = 1139;
+const emailAddress = "luanfabruzzidev@gmail.com";
+const emailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  emailAddress,
+)}&su=${encodeURIComponent("Contato via portfólio")}`;
 
 const ambassadorRoles = [
   {
     name: "DIO Campus Expert",
-    organization: "Embaixadores Universitários DIO",
+    organization: "Digital Innovation One",
     description:
       "Programa de embaixadores universitários focado no desenvolvimento de liderança, comunicação e protagonismo na comunidade tech. Uma experiência que fortalece minha capacidade de conectar pessoas, compartilhar conhecimento e gerar impacto.",
     logo: "../src/assets/dio.png",
     logoAlt: "Logo da DIO",
   },
   {
-    name: "Google Students",
-    organization: "Programa de Embaixadores Universitários Google",
+    name: "Microsoft Learn Student Ambassadors",
+    organization: "MICROSOFT",
     description:
-      "Programa de embaixadores universitários do Google que conecta estudantes ao ecossistema de tecnologia, inovação e comunidade. Uma oportunidade de desenvolver liderança, ampliar conexões e representar iniciativas Google no ambiente acadêmico.",
-    logo: "../src/assets/google-students.png",
-    logoAlt: "Logo do Google Students",
+      "Programa de embaixadores universitários da Microsoft que conecta estudantes ao ecossistema de tecnologia, inovação e comunidade. Uma oportunidade de desenvolver liderança, ampliar conexões e representar iniciativas Microsoft no ambiente acadêmico.",
+    logo: "../src/assets/microsoft.png",
+    logoAlt: "Logo do Microsoft Students",
   },
 ];
 
@@ -117,6 +72,10 @@ function SocialIcon({ name }) {
 }
 
 function Home() {
+  const handleEmailClick = () => {
+    window.open(emailHref, "_blank", "noopener,noreferrer");
+  };
+
   const items = [
     {
       icon: <SocialIcon name="github" />,
@@ -138,9 +97,7 @@ function Home() {
     {
       icon: <SocialIcon name="email" />,
       label: "E-mail",
-      onClick: () => {
-        window.location.href = "mailto:luanfabruzzidev@gmail.com";
-      },
+      onClick: handleEmailClick,
     },
   ];
 
@@ -267,7 +224,7 @@ function Home() {
               com a formação técnica em Desenvolvimento de Sistemas e, desde
               então, venho buscando evoluir tanto na prática quanto nos estudos.
               Também faço parte de comunidades de tecnologia
-              como Embaixador Universitário da DIO e do Google, experiências que
+              como Embaixador Universitário da DIO e da Microsoft, experiências que
               ampliam meu contato com outras pessoas da área. Hoje, meu foco é
               construir uma base sólida como engenheiro de software, ganhar
               experiência em projetos reais e continuar evoluindo até alcançar
@@ -341,7 +298,10 @@ function Home() {
         </div>
       </section>
 
-      <Education education={education} certifications={certifications} />
+      <Education
+        education={education}
+        complementaryHours={complementaryHours}
+      />
 
       <section id="contato" className="contact-section section-shell">
         <div className="contact-section__content">
@@ -351,8 +311,13 @@ function Home() {
             Estou disponível para trocar ideias sobre desenvolvimento e novas
             oportunidades profissionais.
           </p>
-          <a className="button-primary" href="mailto:luanfabruzzidev@gmail.com">
-            Entrar em contato
+          <a
+            className="button-primary"
+            href={emailHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Enviar e-mail
           </a>
         </div>
       </section>
